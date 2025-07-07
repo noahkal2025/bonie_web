@@ -1,0 +1,623 @@
+/* Booni Martial Arts Fitness Hub Styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans:wght@400;600&display=swap');
+
+:root {
+  --primary-black: #000000;
+  --primary-white: #ffffff;
+  --accent-red: #842222;
+  --transition: 0.3s cubic-bezier(0.4,0,0.2,1);
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+body {
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  background: var(--primary-black);
+  color: var(--primary-white);
+  min-height: 100vh;
+  transition: background var(--transition), color var(--transition);
+}
+
+/* Navigation */
+header {
+  background: var(--primary-black);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+}
+.navbar-logo {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+.navbar-menu {
+  display: flex;
+  gap: 2rem;
+}
+.navbar-menu a {
+  color: var(--primary-white);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color var(--transition);
+}
+.navbar-menu a:hover {
+  color: var(--accent-red);
+}
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+.hamburger span {
+  width: 28px;
+  height: 3px;
+  background: var(--primary-white);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+
+/* Mobile Menu */
+@media (max-width: 900px) {
+  .navbar {
+    padding: 1rem;
+  }
+  .navbar-menu {
+    gap: 1rem;
+  }
+}
+@media (max-width: 700px) {
+  .navbar-menu {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: var(--primary-black);
+    flex-direction: column;
+    width: 200px;
+    padding: 1rem 0;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    display: none;
+  }
+  .navbar-menu.active {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Hero Section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  background: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1519864600265-abb23847ef2c?auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+  text-align: center;
+  padding: 4rem 1rem 2rem 1rem;
+  animation: fadeIn 1s;
+}
+.hero h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  color: var(--primary-white);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  color: var(--primary-white);
+  font-weight: 400;
+}
+.hero .cta-buttons {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+}
+.cta-btn {
+  background: var(--accent-red);
+  color: var(--primary-white);
+  border: none;
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+  box-shadow: 0 2px 8px rgba(132,34,34,0.2);
+}
+.cta-btn:hover {
+  background: var(--primary-white);
+  color: var(--accent-red);
+  transform: translateY(-2px) scale(1.04);
+}
+
+/* Services Section */
+.services {
+  background: var(--primary-white);
+  color: var(--primary-black);
+  padding: 4rem 1rem 2rem 1rem;
+}
+.services h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: var(--accent-red);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.service-card {
+  background: #f7f7f7;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  padding: 2rem 1.2rem;
+  text-align: center;
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.service-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(132,34,34,0.13);
+}
+.service-icon {
+  font-size: 2.5rem;
+  color: var(--accent-red);
+  margin-bottom: 1rem;
+}
+.service-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.service-desc {
+  font-size: 1rem;
+  color: #333;
+}
+
+/* About Section */
+.about {
+  background: var(--primary-black);
+  color: var(--primary-white);
+  padding: 4rem 1rem 2rem 1rem;
+}
+.about h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: var(--accent-red);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.about-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+}
+.about-text {
+  flex: 1 1 320px;
+  min-width: 280px;
+}
+.about-gallery {
+  flex: 1 1 320px;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.about-gallery img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+}
+.trainers {
+  margin-top: 2rem;
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.trainer-card {
+  background: #181818;
+  border-radius: 14px;
+  padding: 1.2rem 1rem;
+  text-align: center;
+  color: var(--primary-white);
+  min-width: 180px;
+  max-width: 220px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+}
+.trainer-card img {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 0.7rem;
+}
+.trainer-name {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.trainer-bio {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+
+/* Testimonials */
+.testimonials {
+  background: var(--primary-white);
+  color: var(--primary-black);
+  padding: 4rem 1rem 2rem 1rem;
+}
+.testimonials h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: var(--accent-red);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.testimonial-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.testimonial-card {
+  background: #f7f7f7;
+  border-radius: 14px;
+  padding: 1.5rem 1rem;
+  min-width: 220px;
+  max-width: 320px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  text-align: center;
+}
+.testimonial-quote {
+  font-style: italic;
+  color: #333;
+  margin-bottom: 1rem;
+}
+.testimonial-client {
+  font-weight: 700;
+  color: var(--accent-red);
+}
+
+/* Schedule & Pricing */
+.schedule {
+  background: var(--primary-black);
+  color: var(--primary-white);
+  padding: 4rem 1rem 2rem 1rem;
+}
+.schedule h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: var(--accent-red);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.timetable {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+.timetable table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 600px;
+}
+.timetable th, .timetable td {
+  border: 1px solid #333;
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+}
+.timetable th {
+  background: var(--accent-red);
+  color: var(--primary-white);
+}
+.timetable td {
+  background: #181818;
+}
+.pricing {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+}
+.pricing-plan {
+  background: #181818;
+  border-radius: 14px;
+  padding: 1.5rem 1rem;
+  min-width: 220px;
+  max-width: 320px;
+  text-align: center;
+  color: var(--primary-white);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+}
+.pricing-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--accent-red);
+  margin-bottom: 0.5rem;
+}
+.pricing-amount {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+/* Contact Section */
+.contact {
+  background: var(--primary-white);
+  color: var(--primary-black);
+  padding: 4rem 1rem 2rem 1rem;
+}
+.contact h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: var(--accent-red);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.contact-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: flex-start;
+  justify-content: center;
+}
+.contact-form {
+  flex: 1 1 320px;
+  min-width: 280px;
+  background: #f7f7f7;
+  border-radius: 14px;
+  padding: 2rem 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.contact-form label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.contact-form input, .contact-form textarea {
+  width: 100%;
+  padding: 0.7rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
+}
+.contact-form button {
+  background: var(--accent-red);
+  color: var(--primary-white);
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+}
+.contact-form button:hover {
+  background: var(--primary-black);
+  color: var(--accent-red);
+}
+.contact-info {
+  flex: 1 1 320px;
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  font-size: 1.1rem;
+}
+.contact-info a {
+  color: var(--accent-red);
+  text-decoration: none;
+  font-weight: 600;
+}
+.contact-info a:hover {
+  text-decoration: underline;
+}
+.map {
+  width: 100%;
+  min-height: 220px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  margin-top: 1rem;
+}
+
+/* Gallery */
+.gallery {
+  background: var(--primary-black);
+  color: var(--primary-white);
+  padding: 4rem 1rem 2rem 1rem;
+}
+.gallery h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2rem;
+  color: var(--accent-red);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.gallery-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.gallery-list img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  transition: transform var(--transition);
+}
+.gallery-list img:hover {
+  transform: scale(1.04);
+}
+
+/* Footer */
+footer {
+  background: #181818;
+  color: var(--primary-white);
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+  font-size: 1rem;
+  position: relative;
+}
+.footer-social {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+}
+.footer-social a {
+  color: var(--primary-white);
+  font-size: 1.7rem;
+  transition: color var(--transition);
+}
+.footer-social a:hover {
+  color: var(--accent-red);
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-float {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 2000;
+  background: #25d366;
+  color: #fff;
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  font-size: 2.2rem;
+  cursor: pointer;
+  transition: background var(--transition), transform var(--transition);
+}
+.whatsapp-float:hover {
+  background: #128c7e;
+  transform: scale(1.07);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark Mode Toggle */
+.dark-toggle {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.2rem;
+  background: #222;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition), color var(--transition);
+  z-index: 1200;
+}
+.dark-mode {
+  background: var(--primary-white);
+  color: var(--primary-black);
+}
+.dark-mode header,
+.dark-mode .about,
+.dark-mode .gallery {
+  background: var(--primary-white);
+  color: var(--primary-black);
+}
+.dark-mode .services,
+.dark-mode .testimonials,
+.dark-mode .contact {
+  background: var(--primary-black);
+  color: var(--primary-white);
+}
+.dark-mode .service-card,
+.dark-mode .testimonial-card,
+.dark-mode .contact-form {
+  background: #222;
+  color: var(--primary-white);
+}
+.dark-mode .pricing-plan {
+  background: #fff;
+  color: var(--primary-black);
+}
+
+/* Responsive Tweaks */
+@media (max-width: 900px) {
+  .about-content, .contact-content {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .about-gallery {
+    justify-content: flex-start;
+  }
+}
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .services-list, .testimonial-list, .pricing, .trainers {
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .gallery-list {
+    grid-template-columns: 1fr;
+  }
+  .about-gallery img {
+    width: 80px;
+    height: 80px;
+  }
+}
