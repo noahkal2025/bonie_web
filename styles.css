@@ -621,3 +621,38 @@ footer {
     height: 80px;
   }
 }
+
+/* Add styles for logo container */
+.logo-container {
+  text-align: center;
+  margin-top: 24px;
+}
+.logo-container img {
+  max-width: 180px;
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+/* Add styles for contact social icons */
+.contact-social {
+  margin-bottom: 16px;
+  font-size: 2rem;
+}
+.contact-social a {
+  margin-right: 16px;
+  text-decoration: none;
+}
+.contact-social a:last-child {
+  margin-right: 0;
+}
+.contact-social .fa-whatsapp {
+  color: #25d366;
+}
+.contact-social .fa-facebook {
+  color: #1877f3;
+}
+.contact-social .fa-tiktok {
+  color: #000;
+}
