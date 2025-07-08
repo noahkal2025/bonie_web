@@ -133,28 +133,45 @@ header {
   color: var(--primary-white);
   font-weight: 400;
 }
-.hero .cta-buttons {
+
+/* Hero Section CTA Button Styles */
+.cta-buttons {
   display: flex;
-  gap: 1.5rem;
-  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
+
 .cta-btn {
-  background: var(--accent-red);
-  color: var(--primary-white);
+  background: #842222;
+  color: #fff;
+  padding: 0.85em 2.2em;
   border: none;
-  padding: 0.9rem 2.2rem;
-  font-size: 1.1rem;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
   border-radius: 30px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(132,34,34,0.08);
   cursor: pointer;
-  transition: background var(--transition), color var(--transition), transform var(--transition);
-  box-shadow: 0 2px 8px rgba(132,34,34,0.2);
+  outline: none;
 }
-.cta-btn:hover {
-  background: var(--primary-white);
-  color: var(--accent-red);
-  transform: translateY(-2px) scale(1.04);
+
+.cta-btn:hover, .cta-btn:focus {
+  background: #a63a3a;
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(132,34,34,0.15);
+}
+
+@media (max-width: 600px) {
+  .cta-buttons {
+    flex-direction: column;
+    gap: 0.7rem;
+    align-items: stretch;
+  }
+  .cta-btn {
+    width: 100%;
+    text-align: center;
+  }
 }
 
 /* Services Section */
