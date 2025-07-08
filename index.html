@@ -274,12 +274,7 @@
       <section class="contact" id="contact">
         <h2>Contact Us</h2>
         <div class="contact-content">
-          <form
-            class="contact-form"
-            name="contact"
-            method="POST"
-            data-netlify="true"
-          >
+          <form class="contact-form" id="contactForm">
             <label for="name">Name</label>
             <input type="text" id="name" name="name" required />
             <label for="email">Email</label>
@@ -393,6 +388,18 @@
       darkToggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
       });
+      // WhatsApp contact form handler
+      document
+        .getElementById('contactForm')
+        .addEventListener('submit', function (e) {
+          e.preventDefault();
+          const name = document.getElementById('name').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const message = document.getElementById('message').value.trim();
+          const whatsappNumber = '256775970970';
+          const text = `Hello, my name is ${name} (${email}).%0A${message}`;
+          window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
+        });
     </script>
   </body>
 </html>
