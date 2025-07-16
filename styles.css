@@ -766,3 +766,32 @@ footer {
 .contact-social .fa-tiktok {
   color: #000;
 }
+
+/* About Scan Image Styles */
+.about-scan {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.about-scan .scan-img {
+  width: 220px;
+  max-width: 90vw;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+  background: #fff;
+  padding: 0.5rem;
+}
+
+.about-scan div {
+  margin-top: 0.5rem;
+  font-size: 1.05em;
+  color: #842222;
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .about-scan .scan-img {
+    width: 98vw;
+    max-width: 98vw;
+  }
+}
