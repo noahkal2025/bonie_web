@@ -67,8 +67,8 @@
             <div class="service-icon"><i class="fas fa-user-shield"></i></div>
             <div class="service-title">Self-Defense Training</div>
             <div class="service-desc">
-              Krav Maga, Karate, MMA & more. Build confidence and real-world
-              skills.
+              Self-defense for kids, corporate, and adults. Krav Maga, Chen Tai
+              Chi, Yang Tai Chi, and Qigong.
             </div>
           </div>
           <div class="service-card">
@@ -223,7 +223,23 @@
             alt="Indoor gym and training facility"
             loading="lazy"
           />
+          <img
+            src="gallery3.webp"
+            alt="Martial arts training with uniformed group"
+            loading="lazy"
+          />
+          <img
+            src="gallery4.webp"
+            alt="Martial arts group in orange uniforms outdoors"
+            loading="lazy"
+          />
+          <img
+            src="gallery5.webp"
+            alt="Large outdoor fitness class"
+            loading="lazy"
+          />
         </div>
+        <div class="gallery-overlay" id="galleryOverlay"></div>
       </section>
 
       <!-- Schedule & Pricing -->
@@ -439,6 +455,30 @@
           const text = `Hello, my name is ${name} (${email}).%0A${message}`;
           window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
         });
+      // Gallery click-to-enlarge logic
+      const galleryImages = document.querySelectorAll('.gallery-list img');
+      const galleryOverlay = document.getElementById('galleryOverlay');
+      let enlargedImg = null;
+      galleryImages.forEach((img) => {
+        img.addEventListener('click', function () {
+          if (enlargedImg) {
+            enlargedImg.classList.remove('enlarged');
+            enlargedImg = null;
+            galleryOverlay.classList.remove('active');
+            return;
+          }
+          this.classList.add('enlarged');
+          enlargedImg = this;
+          galleryOverlay.classList.add('active');
+        });
+      });
+      galleryOverlay.addEventListener('click', function () {
+        if (enlargedImg) {
+          enlargedImg.classList.remove('enlarged');
+          enlargedImg = null;
+        }
+        galleryOverlay.classList.remove('active');
+      });
     </script>
   </body>
 </html>
