@@ -138,7 +138,9 @@ header {
 /* Hero Section CTA Button Styles */
 .cta-buttons {
   display: flex;
-  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
   margin-top: 1.5rem;
 }
 
@@ -155,6 +157,7 @@ header {
   box-shadow: 0 2px 8px rgba(132,34,34,0.08);
   cursor: pointer;
   outline: none;
+  display: inline-block;
 }
 
 .cta-btn:hover, .cta-btn:focus {
@@ -163,14 +166,25 @@ header {
   box-shadow: 0 4px 16px rgba(132,34,34,0.15);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
+  .hero {
+    padding: 2.5rem 0.5rem 2rem 0.5rem;
+    min-height: 55vh;
+  }
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .hero p {
+    font-size: 1rem;
+  }
   .cta-buttons {
     flex-direction: column;
     gap: 0.7rem;
-    align-items: stretch;
+    align-items: center;
   }
   .cta-btn {
     width: 100%;
+    max-width: 320px;
     text-align: center;
   }
 }
@@ -433,44 +447,70 @@ header {
   align-items: flex-start;
   justify-content: center;
 }
+
+/* Contact Form Styles */
 .contact-form {
-  flex: 1 1 320px;
-  min-width: 280px;
-  background: #f7f7f7;
-  border-radius: 14px;
-  padding: 2rem 1rem;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 420px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 2rem 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
 }
+
 .contact-form label {
-  display: block;
-  margin-bottom: 0.5rem;
   font-weight: 600;
+  color: #842222;
+  margin-bottom: 0.2rem;
 }
-.contact-form input, .contact-form textarea {
-  width: 100%;
-  padding: 0.7rem;
-  margin-bottom: 1rem;
+
+.contact-form input,
+.contact-form textarea {
+  padding: 0.7em 1em;
   border: 1px solid #ccc;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 1rem;
-  font-family: 'Open Sans', sans-serif;
+  font-family: inherit;
+  background: #faf9f9;
+  transition: border 0.2s;
 }
-.contact-form button {
-  background: var(--accent-red);
-  color: var(--primary-white);
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border: 1.5px solid #842222;
+  outline: none;
+}
+
+.contact-form button[type="submit"] {
+  background: #842222;
+  color: #fff;
   border: none;
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 700;
   border-radius: 30px;
+  padding: 0.85em 2.2em;
+  font-size: 1.1rem;
+  font-weight: 600;
   cursor: pointer;
-  transition: background var(--transition), color var(--transition);
+  margin-top: 0.5rem;
+  transition: background 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(132,34,34,0.08);
 }
-.contact-form button:hover {
-  background: var(--primary-black);
-  color: var(--accent-red);
+
+.contact-form button[type="submit"]:hover,
+.contact-form button[type="submit"]:focus {
+  background: #a63a3a;
+  box-shadow: 0 4px 16px rgba(132,34,34,0.15);
 }
+
+@media (max-width: 600px) {
+  .contact-form {
+    padding: 1.2rem 0.5rem;
+    max-width: 98vw;
+  }
+}
+
 .contact-info {
   flex: 1 1 320px;
   min-width: 280px;

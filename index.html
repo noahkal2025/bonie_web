@@ -232,40 +232,71 @@
         <div class="timetable">
           <table>
             <tr>
-              <th>Day</th>
-              <th>Morning</th>
-              <th>Afternoon</th>
-              <th>Evening</th>
+              <th>Time</th>
+              <th>Class</th>
             </tr>
             <tr>
-              <td>Mon-Fri</td>
-              <td>6:00-8:00am<br />HIIT/Cardio</td>
-              <td>12:00-2:00pm<br />Self-Defense</td>
-              <td>5:00-8:00pm<br />Karate, MMA, Yoga</td>
+              <td>06:00 - 07:00</td>
+              <td>Group Class</td>
             </tr>
             <tr>
-              <td>Saturday</td>
-              <td>7:00-9:00am<br />Strength & Conditioning</td>
-              <td>2:00-4:00pm<br />Zen-Shiatsu Massage</td>
-              <td>5:00-7:00pm<br />Open Mat</td>
+              <td>08:00 - 09:00</td>
+              <td>Group Class</td>
+            </tr>
+            <tr>
+              <td>10:00 - 11:00</td>
+              <td>Individual Class</td>
+            </tr>
+            <tr>
+              <td>11:00 - 12:00</td>
+              <td>Individual Class</td>
+            </tr>
+            <tr>
+              <td>15:00 - 16:00</td>
+              <td>Self-Defense Class</td>
+            </tr>
+            <tr>
+              <td>17:00 - 18:00</td>
+              <td>Group Class</td>
+            </tr>
+            <tr>
+              <td>18:00 - 19:00</td>
+              <td>Group Class</td>
+            </tr>
+            <tr>
+              <td>19:00 - 20:00</td>
+              <td>Group Class</td>
+            </tr>
+            <tr>
+              <td>20:30 - 21:30</td>
+              <td>Group Class</td>
             </tr>
           </table>
         </div>
         <div class="pricing">
           <div class="pricing-plan">
-            <div class="pricing-title">Monthly Membership</div>
-            <div class="pricing-amount">UGX 200,000</div>
-            <div>Unlimited classes, all programs</div>
+            <div class="pricing-title">Aerobics & Strength Training</div>
+            <div>Group Class: <strong>5K</strong></div>
+            <div>Individual Class: <strong>10K</strong></div>
+            <div>Couple/Friends Class: <strong>15K</strong></div>
+            <div>
+              Home Delivery Service: <strong>20K</strong>
+              <span style="font-size: 0.95em">(+ transport)</span>
+            </div>
+            <div>Fitness Monthly: <strong>150K</strong></div>
+            <div>Individual Monthly: <strong>200K</strong></div>
           </div>
           <div class="pricing-plan">
-            <div class="pricing-title">Drop-In</div>
-            <div class="pricing-amount">UGX 15,000</div>
-            <div>Per class, any program</div>
+            <div class="pricing-title">Self Defense</div>
+            <div>Individual Class: <strong>20K</strong></div>
+            <div>Group Class: <strong>20K</strong></div>
+            <div>Couple/Friends Class: <strong>20K</strong></div>
+            <div>Monthly: <strong>200K</strong></div>
+            <div>Home Service Delivery: <strong>300K</strong></div>
           </div>
           <div class="pricing-plan">
-            <div class="pricing-title">Massage Session</div>
-            <div class="pricing-amount">UGX 40,000</div>
-            <div>Per 60-minute session</div>
+            <div class="pricing-title">Shiatsu Massage & Stretches</div>
+            <div>1 Hour Session: <strong>50K</strong></div>
           </div>
         </div>
       </section>
@@ -279,6 +310,14 @@
             <input type="text" id="name" name="name" required />
             <label for="email">Email</label>
             <input type="email" id="email" name="email" required />
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              pattern="[0-9\+\-\s]{7,}"
+              required
+            />
             <label for="message">Message</label>
             <textarea id="message" name="message" rows="4" required></textarea>
             <button type="submit">Send Message</button>
@@ -297,7 +336,7 @@
                 />
               </a>
               <a
-                href="https://facebook.com/bonniehub"
+                href="https://facebook.com/boonihub"
                 target="_blank"
                 aria-label="Facebook"
               >
