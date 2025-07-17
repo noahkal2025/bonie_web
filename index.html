@@ -442,6 +442,8 @@
       </div>
     </footer>
 
+    <script src="mode-toggle.js"></script>
+    <script src="interactive.js"></script>
     <script>
       // Hamburger menu
       const hamburger = document.getElementById('hamburger');
@@ -454,11 +456,6 @@
         link.addEventListener('click', () => {
           if (window.innerWidth < 700) navbarMenu.classList.remove('active');
         });
-      });
-      // Dark mode toggle
-      const darkToggle = document.getElementById('darkToggle');
-      darkToggle.addEventListener('click', () => {
-        document.body.classList.toggle('dark-mode');
       });
       // WhatsApp contact form handler
       document
