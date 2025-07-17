@@ -444,55 +444,5 @@
 
     <script src="mode-toggle.js"></script>
     <script src="interactive.js"></script>
-    <script>
-      // Hamburger menu
-      const hamburger = document.getElementById('hamburger');
-      const navbarMenu = document.getElementById('navbarMenu');
-      hamburger.addEventListener('click', () => {
-        navbarMenu.classList.toggle('active');
-      });
-      // Close menu on link click (mobile)
-      document.querySelectorAll('.navbar-menu a').forEach((link) => {
-        link.addEventListener('click', () => {
-          if (window.innerWidth < 700) navbarMenu.classList.remove('active');
-        });
-      });
-      // WhatsApp contact form handler
-      document
-        .getElementById('contactForm')
-        .addEventListener('submit', function (e) {
-          e.preventDefault();
-          const name = document.getElementById('name').value.trim();
-          const email = document.getElementById('email').value.trim();
-          const message = document.getElementById('message').value.trim();
-          const whatsappNumber = '256775970970';
-          const text = `Hello, my name is ${name} (${email}).%0A${message}`;
-          window.open(`https://wa.me/${whatsappNumber}?text=${text}`, '_blank');
-        });
-      // Gallery click-to-enlarge logic
-      const galleryImages = document.querySelectorAll('.gallery-list img');
-      const galleryOverlay = document.getElementById('galleryOverlay');
-      let enlargedImg = null;
-      galleryImages.forEach((img) => {
-        img.addEventListener('click', function () {
-          if (enlargedImg) {
-            enlargedImg.classList.remove('enlarged');
-            enlargedImg = null;
-            galleryOverlay.classList.remove('active');
-            return;
-          }
-          this.classList.add('enlarged');
-          enlargedImg = this;
-          galleryOverlay.classList.add('active');
-        });
-      });
-      galleryOverlay.addEventListener('click', function () {
-        if (enlargedImg) {
-          enlargedImg.classList.remove('enlarged');
-          enlargedImg = null;
-        }
-        galleryOverlay.classList.remove('active');
-      });
-    </script>
   </body>
 </html>

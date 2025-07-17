@@ -1,82 +1,112 @@
 // interactive.js
-// Adds beautiful and interactive features to Bonnie Martial Arts Fitness Hub
+// All interactive features for Bonnie Martial Arts Fitness Hub
 
-document.addEventListener('DOMContentLoaded', function () {
-  // 1. Smooth scroll for navigation links
-  document.querySelectorAll('.navbar-menu a').forEach((link) => {
-    link.addEventListener('click', function (e) {
-      const href = this.getAttribute('href');
-      if (href && href.startsWith('#')) {
-        e.preventDefault();
-        document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
+// Hamburger menu toggle
+const hamburger = document.querySelector('.hamburger');
+const navMenu = document.querySelector('.nav-menu');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  navMenu.classList.toggle('active');
+});
 
-  // 2. Navbar shadow on scroll
-  const navbar = document.querySelector('.navbar');
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 30) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
+// Smooth scroll for nav links
+const navLinks = document.querySelectorAll('.nav-link');
+navLinks.forEach(link => {
+  link.addEventListener('click', function(e) {
+    e.preventDefault();
+    const targetId = this.getAttribute('href').slice(1);
+    const targetSection = document.getElementById(targetId);
+    if (targetSection) {
+      targetSection.scrollIntoView({ behavior: 'smooth' });
     }
+    hamburger.classList.remove('active');
+    navMenu.classList.remove('active');
   });
+});
 
-  // 3. Button ripple effect
-  document.querySelectorAll('button, .cta-btn').forEach((btn) => {
-    btn.addEventListener('click', function (e) {
-      const ripple = document.createElement('span');
-      ripple.className = 'ripple';
-      ripple.style.left = e.offsetX + 'px';
-      ripple.style.top = e.offsetY + 'px';
-      this.appendChild(ripple);
-      setTimeout(() => ripple.remove(), 600);
-    });
-  });
-
-  // 4. Gallery hover effect (subtle zoom)
-  document.querySelectorAll('.gallery-list img').forEach((img) => {
-    img.addEventListener('mouseenter', function () {
-      this.classList.add('hover-zoom');
-    });
-    img.addEventListener('mouseleave', function () {
-      this.classList.remove('hover-zoom');
-    });
-  });
-
-  // 5. Animated reveal for sections
-  const revealSections = document.querySelectorAll('section');
-  const revealOnScroll = () => {
-    revealSections.forEach((sec) => {
-      const rect = sec.getBoundingClientRect();
-      if (rect.top < window.innerHeight - 100) {
-        sec.classList.add('revealed');
-      }
-    });
-  };
-  window.addEventListener('scroll', revealOnScroll);
-  revealOnScroll();
-
-  // 6. Toast notification on contact form submit
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', function () {
-      showToast('Thank you! We will contact you soon via WhatsApp.');
-    });
-  }
-
-  function showToast(message) {
-    let toast = document.createElement('div');
-    toast.className = 'toast';
-    toast.textContent = message;
-    document.body.appendChild(toast);
-    setTimeout(() => {
-      toast.classList.add('show');
-      setTimeout(() => {
-        toast.classList.remove('show');
-        setTimeout(() => toast.remove(), 400);
-      }, 2200);
-    }, 100);
+// Navbar shadow on scroll
+const navbar = document.querySelector('.navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) {
+    navbar.classList.add('shadow');
+  } else {
+    navbar.classList.remove('shadow');
   }
 });
+
+// Gallery enlarge on click
+const galleryImages = document.querySelectorAll('.gallery-list img');
+const galleryOverlay = document.getElementById('galleryOverlay');
+let enlargedImg = null;
+galleryImages.forEach(img => {
+  img.style.cursor = 'pointer';
+  img.addEventListener('click', () => {
+    galleryOverlay.innerHTML = '';
+    galleryOverlay.style.display = 'flex';
+    enlargedImg = document.createElement('img');
+    enlargedImg.src = img.src;
+    enlargedImg.alt = img.alt;
+    enlargedImg.className = 'enlarged-img';
+    galleryOverlay.appendChild(enlargedImg);
+  });
+});
+galleryOverlay.addEventListener('click', () => {
+  galleryOverlay.style.display = 'none';
+  galleryOverlay.innerHTML = '';
+});
+
+// Contact form WhatsApp handler
+const contactForm = document.getElementById('contact-form');
+if (contactForm) {
+  contactForm.addEventListener('submit', function(e) {
+    e.preventDefault();
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const message = document.getElementById('message').value;
+    const whatsappNumber = '2348033777744'; // Bonnie's WhatsApp
+    const whatsappMsg = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AMessage: ${message}`;
+    window.open(`https://wa.me/${whatsappNumber}?text=${whatsappMsg}`, '_blank');
+  });
+}
+
+// Button ripple effect
+const joinBtn = document.querySelector('.join-btn');
+if (joinBtn) {
+  joinBtn.addEventListener('click', function(e) {
+    const ripple = document.createElement('span');
+    ripple.className = 'ripple';
+    ripple.style.left = `${e.offsetX}px`;
+    ripple.style.top = `${e.offsetY}px`;
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 600);
+  });
+}
+
+// Section reveal on scroll
+const revealSections = document.querySelectorAll('.reveal');
+function revealOnScroll() {
+  const windowHeight = window.innerHeight;
+  revealSections.forEach(section => {
+    const sectionTop = section.getBoundingClientRect().top;
+    if (sectionTop < windowHeight - 100) {
+      section.classList.add('active');
+    }
+  });
+}
+window.addEventListener('scroll', revealOnScroll);
+window.addEventListener('load', revealOnScroll);
+
+// Toast notification (example usage)
+function showToast(msg) {
+  let toast = document.createElement('div');
+  toast.className = 'toast';
+  toast.textContent = msg;
+  document.body.appendChild(toast);
+  setTimeout(() => toast.classList.add('show'), 100);
+  setTimeout(() => {
+    toast.classList.remove('show');
+    setTimeout(() => toast.remove(), 400);
+  }, 2500);
+}
+// Example: showToast('Welcome to Bonnie Martial Arts Fitness Hub!');
